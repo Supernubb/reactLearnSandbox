@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, winnerArr }) {
     return (
         <button
-            className="square"
+            className={`square ${winnerArr && "winner"}`}
             onClick={onSquareClick}
         >
             {value}
@@ -26,21 +26,37 @@ function calculateWinner(squares) {
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
+            return lines[i];
         }
     }
 
     return null;
 }
 
-function Board({ xIsNext, squares, onPlay }) {
+function Board({ xIsNext, squares, onPlay, currentMove }) {
+    const winnerArr = Array(9).fill(false);
+
     const winner = calculateWinner(squares);
     let status;
-    // этот код как будто запускается каждый раз при клике, отслеживается изменение переменной виннер и статус, почему? и как виннер может быть конст, если он каждый раз меняется
     if (winner) {
-        status = `Победитель: ${winner}`;
+        status = `Победитель: ${squares[winner[0]]}`;
+        winnerArr[winner[0]] = true;
+        winnerArr[winner[1]] = true;
+        winnerArr[winner[2]] = true;
+    } else if (currentMove === 9) {
+        status = `Ничья!`;
     } else {
         status = `Следующий ход: ${xIsNext ? "X" : "O"}`;
+    }
+
+    // задание 1. Только для текущего хода вместо кнопки покажите «Вы находитесь на ходу №…».
+    let currentMoveStatus;
+    if (currentMove === 0) {
+        currentMoveStatus = `Игра начинается!`;
+    } else if (calculateWinner(squares) || currentMove === 9) {
+        currentMoveStatus = `Игра окончена!`;
+    } else {
+        currentMoveStatus = `Вы находитесь на ходу номер ${currentMove}`;
     }
 
     function handleCkick(i) {
@@ -56,10 +72,23 @@ function Board({ xIsNext, squares, onPlay }) {
         onPlay(nextSquares);
     }
 
+    const boardRows = [[0, 1, 2], [3, 4, 5], [6, 7, 8]];
+
     return (
         <>
+            <div>{currentMoveStatus}</div>
             <div className="status">{status}</div>
-            <div className="boardRow">
+
+            {boardRows.map((row, i) => {
+                return (
+                    <div key={i} className="boardRow">
+                        {row.map((k) => {
+                            return <Square key={k} value={squares[k]} onSquareClick={() => handleCkick(k)} winnerArr={winnerArr[k]} />
+                        })}
+                    </div>
+                )
+            })}
+            {/* <div className="boardRow">
                 <Square value={squares[0]} onSquareClick={() => handleCkick(0)} />
                 <Square value={squares[1]} onSquareClick={() => handleCkick(1)} />
                 <Square value={squares[2]} onSquareClick={() => handleCkick(2)} />
@@ -73,13 +102,14 @@ function Board({ xIsNext, squares, onPlay }) {
                 <Square value={squares[6]} onSquareClick={() => handleCkick(6)} />
                 <Square value={squares[7]} onSquareClick={() => handleCkick(7)} />
                 <Square value={squares[8]} onSquareClick={() => handleCkick(8)} />
-            </div>
+            </div> */}
         </>
     )
 }
 
 export default function Game() {
     const [history, setHistory] = useState([Array(9).fill(null)]);
+    const [historySortingDirection, setHistorySortingDirection] = useState(true);
     const [currentMove, setCurrentMove] = useState(0);
     const xIsNext = currentMove % 2 === 0;
     const currentSquares = history[currentMove];
@@ -108,15 +138,22 @@ export default function Game() {
                 <button onClick={() => jumpTo(move)}>{description}</button>
             </li>
         )
-    })
+    });
+
+    if (historySortingDirection) {
+        moves.sort((a, b) => a.key - b.key);
+    } else {
+        moves.sort((a, b) => b.key - a.key);
+    }
 
     return (
         <div className="game">
             <div className="game-board">
-                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} currentMove={currentMove} />
             </div>
             <div className="game-info">
-                <ol>{moves}</ol>
+                <button onClick={() => setHistorySortingDirection(!historySortingDirection)}>Отсортировать ходы</button>
+                <ul>{moves}</ul>
             </div>
         </div>
     )

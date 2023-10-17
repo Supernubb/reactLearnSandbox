@@ -71,6 +71,10 @@
     width: 50px;
     cursor: pointer;
   }
+
+  .square.winner {
+    background-color: yellow;
+  }
   
   .boardRow:after {
     clear: both;
@@ -88,5 +92,9 @@
   
   .game-info {
     margin-left: 20px;
+  }
+
+  .game-board {
+    width: 300px;
   }
   
