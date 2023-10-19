@@ -23,13 +23,13 @@ function FilterableProductTable({ products }) {
 
 function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) {
     return (
-        <div className="flex flex-col justify-evenly h-20 pl-5 border-2 border-blue-400">
+        <div className="flex flex-col justify-evenly h-20 px-5 border-2 border-blue-400">
             <div>
-                <input onChange={(e) => onFilterTextChange(e.target.value)} type="search" placeholder="Поиск..." value={filterText} className="border border-black h-5 outline-none" />
+                <input onChange={(e) => onFilterTextChange(e.target.value)} type="search" placeholder="Поиск..." value={filterText} className="border border-black h-5 outline-none w-full" />
             </div>
             <div>
-                <input onChange={(e) => onInStockOnlyChange(e.target.checked)} type="checkbox" checked={inStockOnly} className="mr-3" />
-                Только продукты в магазине
+                <input onChange={(e) => onInStockOnlyChange(e.target.checked)} type="checkbox" checked={inStockOnly} className="mr-3" id="inStockOnly" />
+                <label htmlFor="inStockOnly">Только продукты в магазине</label>
             </div>
         </div>
     )
