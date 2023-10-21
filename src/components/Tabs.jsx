@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-import Game from './Game';
-import KeepingComponentsPure from './KeepingComponentsPure';
-import RenderingList from './RenderingList';
-import Table from './Table';
+import TicTacToeGame from './react.dev.learn/TicTacToeGame';
+import KeepingComponentsPure from './react.dev.learn/KeepingComponentsPure';
+import RenderingList from './react.dev.learn/RenderingLists';
+import ThinkingInReact from './react.dev.learn/ThinkingInReact';
+import ConditionalRendering from './react.dev.learn/ConditionalRendering';
+import RespondingToEvents from './react.dev.learn/RespondingToEvents';
+import StateAComponentsMemory from './react.dev.learn/StateAComponentsMemory';
 
 const components = [
     {
-        name: `Game`,
-        component: <Game />,
+        name: `TicTacToeGame`,
+        component: <TicTacToeGame />,
     },
     {
-        name: `Table`,
-        component: <Table />,
+        name: `ThinkingInReact(Table)`,
+        component: <ThinkingInReact />,
+    },
+    {
+        name: `ConditionalRendering`,
+        component: <ConditionalRendering />,
     },
     {
         name: `RenderingList`,
@@ -22,38 +29,42 @@ const components = [
         name: `KeepingComponentsPure`,
         component: <KeepingComponentsPure />,
     },
+    {
+        name: `RespondingToEvents`,
+        component: <RespondingToEvents />,
+    },
+    {
+        name: `StateAComponentsMemory`,
+        component: <StateAComponentsMemory />,
+    },
 ];
 
 export default function Tabs() {
-    const [tabHidden, settabHidden] = useState([...Array(components.length - 1).fill(true), false]);
+    const [showTab, setShowTab] = useState([...Array(components.length - 1).fill(false), true]);
+    const [curComponent, setCurComponent] = useState(components.length - 1);
 
-    function tabClick(id) {
-        const newShowTab = Array(components.length).fill(true);
-        newShowTab[id] = false;
-        settabHidden(newShowTab);
+    function onTabClick(id) {
+        const newShowTab = showTab.slice();
+        newShowTab[curComponent] = false;
+        newShowTab[id] = true;
+        setShowTab(newShowTab);
+        setCurComponent(id);
     }
 
-    const tabList = components.map(({ name, component }, i) => {
-        return (
-            <div key={i} onClick={() => tabClick(i)} className={tabHidden[i] ? 'p-2 m-2 border border-red-500 cursor-pointer' : 'p-2 m-2 border border-green-500 font-bold'}>{name}</div>
-        )
-    });
-
-
-    const componentsList = components.map(({ name, component }, i) => {
-        return (
-            <div key={i} className={tabHidden[i] ? `hidden ml-2 mt-4` : `ml-2 mt-4`}>
-                {component}
-            </div>
-        )
-    });
+    const tabList = components.map((component, i) =>
+        <button key={i} onClick={() => onTabClick(i)} className={`p-2 m-2 border ${showTab[i] ? ' border-green-500 font-bold' : ' border-red-500'}`} disabled={i === curComponent}>
+            {component.name}
+        </button>
+    );
 
     return (
         <>
             <div className='flex flex-wrap'>
                 {tabList}
             </div>
-            {componentsList}
+            <div className="ml-2 mt-4">
+                {components[curComponent].component}
+            </div>
         </>
     )
 }

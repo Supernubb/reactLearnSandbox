@@ -88,21 +88,6 @@ function Board({ xIsNext, squares, onPlay, currentMove }) {
                     </div>
                 )
             })}
-            {/* <div className="boardRow">
-                <Square value={squares[0]} onSquareClick={() => handleCkick(0)} />
-                <Square value={squares[1]} onSquareClick={() => handleCkick(1)} />
-                <Square value={squares[2]} onSquareClick={() => handleCkick(2)} />
-            </div>
-            <div className="boardRow">
-                <Square value={squares[3]} onSquareClick={() => handleCkick(3)} />
-                <Square value={squares[4]} onSquareClick={() => handleCkick(4)} />
-                <Square value={squares[5]} onSquareClick={() => handleCkick(5)} />
-            </div>
-            <div className="boardRow">
-                <Square value={squares[6]} onSquareClick={() => handleCkick(6)} />
-                <Square value={squares[7]} onSquareClick={() => handleCkick(7)} />
-                <Square value={squares[8]} onSquareClick={() => handleCkick(8)} />
-            </div> */}
         </>
     )
 }
