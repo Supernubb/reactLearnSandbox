@@ -9,6 +9,8 @@ import RespondingToEvents from './react.dev.learn/RespondingToEvents';
 import StateAComponentsMemory from './react.dev.learn/StateAComponentsMemory';
 import StateAsASnapshot from './react.dev.learn/StateAsASnapshot';
 import QueueingASeriesOfStateUpdates from './react.dev.learn/QueueingASeriesOfStateUpdates';
+import UpdatingObjectsInState from './react.dev.learn/UpdatingObjectsInState';
+import UpdatingArraysInState from './react.dev.learn/UpdatingArraysInState';
 
 const components = [
     {
@@ -46,6 +48,14 @@ const components = [
     {
         name: `QueueingASeriesOfStateUpdates`,
         component: <QueueingASeriesOfStateUpdates />,
+    },
+    {
+        name: `UpdatingObjectsInState`,
+        component: <UpdatingObjectsInState />,
+    },
+    {
+        name: `UpdatingArraysInState`,
+        component: <UpdatingArraysInState />,
     },
 ];
 
