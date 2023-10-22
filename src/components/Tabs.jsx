@@ -40,19 +40,10 @@ const components = [
 ];
 
 export default function Tabs() {
-    const [showTab, setShowTab] = useState([...Array(components.length - 1).fill(false), true]);
     const [curComponent, setCurComponent] = useState(components.length - 1);
 
-    function onTabClick(id) {
-        const newShowTab = showTab.slice();
-        newShowTab[curComponent] = false;
-        newShowTab[id] = true;
-        setShowTab(newShowTab);
-        setCurComponent(id);
-    }
-
     const tabList = components.map((component, i) =>
-        <button key={i} onClick={() => onTabClick(i)} className={`p-2 m-2 border ${showTab[i] ? ' border-green-500 font-bold' : ' border-red-500'}`} disabled={i === curComponent}>
+        <button key={i} onClick={() => setCurComponent(i)} className={`p-2 m-2 border ${i === curComponent ? ' border-green-500 font-bold' : ' border-red-500'}`} disabled={i === curComponent}>
             {component.name}
         </button>
     );
