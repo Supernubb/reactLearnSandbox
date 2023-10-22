@@ -7,6 +7,8 @@ import ThinkingInReact from './react.dev.learn/ThinkingInReact';
 import ConditionalRendering from './react.dev.learn/ConditionalRendering';
 import RespondingToEvents from './react.dev.learn/RespondingToEvents';
 import StateAComponentsMemory from './react.dev.learn/StateAComponentsMemory';
+import StateAsASnapshot from './react.dev.learn/StateAsASnapshot';
+import QueueingASeriesOfStateUpdates from './react.dev.learn/QueueingASeriesOfStateUpdates';
 
 const components = [
     {
@@ -37,6 +39,14 @@ const components = [
         name: `StateAComponentsMemory`,
         component: <StateAComponentsMemory />,
     },
+    {
+        name: `StateAsASnapshot`,
+        component: <StateAsASnapshot />,
+    },
+    {
+        name: `QueueingASeriesOfStateUpdates`,
+        component: <QueueingASeriesOfStateUpdates />,
+    },
 ];
 
 export default function Tabs() {
@@ -50,10 +60,15 @@ export default function Tabs() {
 
     return (
         <>
+            <div className='bg-sky-300 m-2 p-2 border-4 border-yellow-400 rounded-xl'>
+                <div>Все задачи можно найти на сайте <a href="https://react.dev/learn" className='text-blue-600'>https://react.dev/learn</a> по названию компонента</div>
+                <div>Для добавления компонента опишите его в файле src\components\Tabs.jsx в массиве components указав name и импортировав сам компонент</div>
+                <div>Для отрисовки задач добавляем в массив то что мы бы обычно return для каждой задачи и передаем в компонент src\components\TaskWrapper.jsx</div>
+            </div>
             <div className='flex flex-wrap'>
                 {tabList}
             </div>
-            <div className="ml-2 mt-4">
+            <div className="mx-2 mt-4">
                 {components[curComponent].component}
             </div>
         </>
