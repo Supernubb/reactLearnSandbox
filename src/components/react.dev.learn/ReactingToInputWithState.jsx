@@ -1,19 +1,22 @@
 import TaskWrapper from "../TaskWrapper";
 
 export default function ReactingToInputWithState() {
-    async function f() {
 
-        let promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve("готово!"), 1000)
-        });
-
-        let result = await promise; // будет ждать, пока промис не выполнится (*)
-
-        alert(result); // "готово!"
-
-        console.log(`qdasdasdasdasadasdads`);
+    function f1() {
+        console.log(1);
     }
 
-    console.log(f());
+    function f2() {
+        console.log(2);
+    }
+
+    function f3() {
+        console.log(3);
+    }
+
+    f2();
+    f1();
+    f3();
+
     return <TaskWrapper tasks={[<>None</>]} />
 }
