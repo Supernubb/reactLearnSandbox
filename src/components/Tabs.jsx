@@ -11,6 +11,8 @@ import StateAsASnapshot from './react.dev.learn/StateAsASnapshot';
 import QueueingASeriesOfStateUpdates from './react.dev.learn/QueueingASeriesOfStateUpdates';
 import UpdatingObjectsInState from './react.dev.learn/UpdatingObjectsInState';
 import UpdatingArraysInState from './react.dev.learn/UpdatingArraysInState';
+import ReactingToInputWithState from './react.dev.learn/ReactingToInputWithState';
+import PassingPropsToAComponent from './react.dev.learn/PassingPropsToAComponent';
 
 const components = [
     {
@@ -20,6 +22,10 @@ const components = [
     {
         name: `ThinkingInReact(Table)`,
         component: <ThinkingInReact />,
+    },
+    {
+        name: `PassingPropsToAComponent`,
+        component: <PassingPropsToAComponent />,
     },
     {
         name: `ConditionalRendering`,
@@ -56,6 +62,10 @@ const components = [
     {
         name: `UpdatingArraysInState`,
         component: <UpdatingArraysInState />,
+    },
+    {
+        name: `ReactingToInputWithState`,
+        component: <ReactingToInputWithState />,
     },
 ];
 

@@ -83,5 +83,5 @@ export default function UpdatingObjectsInState() {
         });
     }`
 
-    return <TaskWrapper tasks={[task1, task2]} />
+    return <TaskWrapper tasks={[task1, task2, task3]} />
 }
