@@ -11,7 +11,7 @@ export default function ReactingToInputWithState() {
 
         alert(result); // "готово!"
 
-        console.log(`qdasdasdasdas`);
+        console.log(`qdasdasdasdasadasdads`);
     }
 
     console.log(f());
