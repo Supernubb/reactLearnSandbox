@@ -13,6 +13,7 @@ import UpdatingObjectsInState from './react.dev.learn/UpdatingObjectsInState';
 import UpdatingArraysInState from './react.dev.learn/UpdatingArraysInState';
 import ReactingToInputWithState from './react.dev.learn/ReactingToInputWithState';
 import PassingPropsToAComponent from './react.dev.learn/PassingPropsToAComponent';
+import ChoosingTheStateStructure from './react.dev.learn/ChoosingTheStateStructure';
 
 const components = [
     {
@@ -66,6 +67,10 @@ const components = [
     {
         name: `ReactingToInputWithState`,
         component: <ReactingToInputWithState />,
+    },
+    {
+        name: `ChoosingTheStateStructure`,
+        component: <ChoosingTheStateStructure />,
     },
 ];
 
