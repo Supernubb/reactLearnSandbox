@@ -2,9 +2,9 @@ import { useState } from "react";
 import TaskWrapper from "../TaskWrapper";
 // 2 задача данные
 const initialItems = [
-    { id: 2, title: 'Warm socks', packed: true },
-    { id: 3, title: 'Travel journal', packed: false },
-    { id: 4, title: 'Watercolors', packed: false },
+    { id: 0, title: 'Warm socks', packed: true },
+    { id: 1, title: 'Travel journal', packed: false },
+    { id: 2, title: 'Watercolors', packed: false },
 ];
 
 export default function ChoosingTheStateStructure() {
@@ -14,9 +14,7 @@ export default function ChoosingTheStateStructure() {
     // 2 задача
     const [products, setProducts] = useState(initialItems);
     const [newProduct, setNewProduct] = useState("");
-
-    // const newProducts = products.map((product, i) => ({ ...product, id: i }));
-    // setProducts(newProducts);
+    console.log(products);
 
     function onChecked(productId) {
         const newProducts = products.map(product => product.id === productId ? { ...product, packed: !product.packed } : product);
@@ -29,7 +27,7 @@ export default function ChoosingTheStateStructure() {
     }
 
     function onAdd() {
-        const newProducts = [...products, { id: products.length, title: newProduct, packed: false }]
+        const newProducts = [...products, { id: products[products.length - 1].id + 1, title: newProduct, packed: false }]
         setProducts(newProducts);
     }
 
