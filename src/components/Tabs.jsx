@@ -14,6 +14,8 @@ import UpdatingArraysInState from './react.dev.learn/UpdatingArraysInState';
 import ReactingToInputWithState from './react.dev.learn/ReactingToInputWithState';
 import PassingPropsToAComponent from './react.dev.learn/PassingPropsToAComponent';
 import ChoosingTheStateStructure from './react.dev.learn/ChoosingTheStateStructure';
+import SharingStateBetweenComponents from './react.dev.learn/SharingStateBetweenComponents';
+import PreservingAndResettingState from './react.dev.learn/PreservingAndResettingState';
 
 const components = [
     {
@@ -71,6 +73,14 @@ const components = [
     {
         name: `ChoosingTheStateStructure`,
         component: <ChoosingTheStateStructure />,
+    },
+    {
+        name: `SharingStateBetweenComponents`,
+        component: <SharingStateBetweenComponents />,
+    },
+    {
+        name: `PreservingAndResettingState`,
+        component: <PreservingAndResettingState />,
     },
 ];
 
