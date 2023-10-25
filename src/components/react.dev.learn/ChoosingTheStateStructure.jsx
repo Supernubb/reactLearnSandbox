@@ -1,318 +1,55 @@
 import { useState } from "react";
+import TaskWrapper from "../TaskWrapper";
+// 2 задача данные
+const initialItems = [
+    { id: 2, title: 'Warm socks', packed: true },
+    { id: 3, title: 'Travel journal', packed: false },
+    { id: 4, title: 'Watercolors', packed: false },
+];
 
 export default function ChoosingTheStateStructure() {
-    const initialTravelPlan = {
-        0: {
-            id: 0,
-            title: '(Root)',
-            childIds: [1, 42, 46],
-        },
-        1: {
-            id: 1,
-            title: 'Earth',
-            childIds: [2, 10, 19, 26, 34]
-        },
-        2: {
-            id: 2,
-            title: 'Africa',
-            childIds: [3, 4, 5, 6, 7, 8, 9]
-        },
-        3: {
-            id: 3,
-            title: 'Botswana',
-            childIds: []
-        },
-        4: {
-            id: 4,
-            title: 'Egypt',
-            childIds: []
-        },
-        5: {
-            id: 5,
-            title: 'Kenya',
-            childIds: []
-        },
-        6: {
-            id: 6,
-            title: 'Madagascar',
-            childIds: []
-        },
-        7: {
-            id: 7,
-            title: 'Morocco',
-            childIds: []
-        },
-        8: {
-            id: 8,
-            title: 'Nigeria',
-            childIds: []
-        },
-        9: {
-            id: 9,
-            title: 'South Africa',
-            childIds: []
-        },
-        10: {
-            id: 10,
-            title: 'Americas',
-            childIds: [11, 12, 13, 14, 15, 16, 17, 18],
-        },
-        11: {
-            id: 11,
-            title: 'Argentina',
-            childIds: []
-        },
-        12: {
-            id: 12,
-            title: 'Brazil',
-            childIds: []
-        },
-        13: {
-            id: 13,
-            title: 'Barbados',
-            childIds: []
-        },
-        14: {
-            id: 14,
-            title: 'Canada',
-            childIds: []
-        },
-        15: {
-            id: 15,
-            title: 'Jamaica',
-            childIds: []
-        },
-        16: {
-            id: 16,
-            title: 'Mexico',
-            childIds: []
-        },
-        17: {
-            id: 17,
-            title: 'Trinidad and Tobago',
-            childIds: []
-        },
-        18: {
-            id: 18,
-            title: 'Venezuela',
-            childIds: []
-        },
-        19: {
-            id: 19,
-            title: 'Asia',
-            childIds: [20, 21, 22, 23, 24, 25],
-        },
-        20: {
-            id: 20,
-            title: 'China',
-            childIds: []
-        },
-        21: {
-            id: 21,
-            title: 'India',
-            childIds: []
-        },
-        22: {
-            id: 22,
-            title: 'Singapore',
-            childIds: []
-        },
-        23: {
-            id: 23,
-            title: 'South Korea',
-            childIds: []
-        },
-        24: {
-            id: 24,
-            title: 'Thailand',
-            childIds: []
-        },
-        25: {
-            id: 25,
-            title: 'Vietnam',
-            childIds: []
-        },
-        26: {
-            id: 26,
-            title: 'Europe',
-            childIds: [27, 28, 29, 30, 31, 32, 33],
-        },
-        27: {
-            id: 27,
-            title: 'Croatia',
-            childIds: []
-        },
-        28: {
-            id: 28,
-            title: 'France',
-            childIds: []
-        },
-        29: {
-            id: 29,
-            title: 'Germany',
-            childIds: []
-        },
-        30: {
-            id: 30,
-            title: 'Italy',
-            childIds: []
-        },
-        31: {
-            id: 31,
-            title: 'Portugal',
-            childIds: []
-        },
-        32: {
-            id: 32,
-            title: 'Spain',
-            childIds: []
-        },
-        33: {
-            id: 33,
-            title: 'Turkey',
-            childIds: []
-        },
-        34: {
-            id: 34,
-            title: 'Oceania',
-            childIds: [35, 36, 37, 38, 39, 40, 41],
-        },
-        35: {
-            id: 35,
-            title: 'Australia',
-            childIds: []
-        },
-        36: {
-            id: 36,
-            title: 'Bora Bora (French Polynesia)',
-            childIds: []
-        },
-        37: {
-            id: 37,
-            title: 'Easter Island (Chile)',
-            childIds: []
-        },
-        38: {
-            id: 38,
-            title: 'Fiji',
-            childIds: []
-        },
-        39: {
-            id: 39,
-            title: 'Hawaii (the USA)',
-            childIds: []
-        },
-        40: {
-            id: 40,
-            title: 'New Zealand',
-            childIds: []
-        },
-        41: {
-            id: 41,
-            title: 'Vanuatu',
-            childIds: []
-        },
-        42: {
-            id: 42,
-            title: 'Moon',
-            childIds: [43, 44, 45]
-        },
-        43: {
-            id: 43,
-            title: 'Rheita',
-            childIds: []
-        },
-        44: {
-            id: 44,
-            title: 'Piccolomini',
-            childIds: []
-        },
-        45: {
-            id: 45,
-            title: 'Tycho',
-            childIds: []
-        },
-        46: {
-            id: 46,
-            title: 'Mars',
-            childIds: [47, 48]
-        },
-        47: {
-            id: 47,
-            title: 'Corn Town',
-            childIds: []
-        },
-        48: {
-            id: 48,
-            title: 'Green Hill',
-            childIds: []
-        }
-    };
+    // 1 задача
+    const task1 = "const color = props.color;";
 
+    // 2 задача
+    const [products, setProducts] = useState(initialItems);
+    const [newProduct, setNewProduct] = useState("");
 
-    const [plan, setPlan] = useState(initialTravelPlan);
+    // const newProducts = products.map((product, i) => ({ ...product, id: i }));
+    // setProducts(newProducts);
 
-    function handleComplete(parentId, childId) {
-        const parent = plan[parentId];
-        // Create a new version of the parent place
-        // that doesn't include this child ID.
-        const nextParent = {
-            ...parent,
-            childIds: parent.childIds
-                .filter(id => id !== childId)
-        };
-        // Update the root state object...
-        setPlan({
-            ...plan,
-            // ...so that it has the updated parent.
-            [parentId]: nextParent
-        });
+    function onChecked(productId) {
+        const newProducts = products.map(product => product.id === productId ? { ...product, packed: !product.packed } : product);
+        setProducts(newProducts);
     }
 
-    const root = plan[0];
-    const planetIds = root.childIds;
-    return (
-        <>
-            <h2>Places to visit</h2>
-            <ol>
-                {planetIds.map(id => (
-                    <PlaceTree
-                        key={id}
-                        id={id}
-                        parentId={0}
-                        placesById={plan}
-                        onComplete={handleComplete}
-                    />
-                ))}
-            </ol>
-        </>
-    );
-}
+    function onDelete(productId) {
+        const newProducts = products.filter(product => product.id !== productId);
+        setProducts(newProducts);
+    }
 
-function PlaceTree({ id, parentId, placesById, onComplete }) {
-    const place = placesById[id];
-    const childIds = place.childIds;
-    return (
-        <li>
-            {place.title}
-            <button onClick={() => {
-                onComplete(parentId, id);
-            }}>
-                Complete
-            </button>
-            {childIds.length > 0 &&
-                <ol>
-                    {childIds.map(childId => (
-                        <PlaceTree
-                            key={childId}
-                            id={childId}
-                            parentId={id}
-                            placesById={placesById}
-                            onComplete={onComplete}
-                        />
-                    ))}
-                </ol>
-            }
-        </li>
-    );
+    function onAdd() {
+        const newProducts = [...products, { id: products.length, title: newProduct, packed: false }]
+        setProducts(newProducts);
+    }
+
+    const task2 =
+        <div className="flex flex-col">
+            <div className="flex flex-row">
+                <input value={newProduct} onChange={e => setNewProduct(e.target.value)} className="border border-black" type="text" placeholder="Add item" />
+                <button onClick={onAdd} className="ml-2 border border-black">Add</button>
+            </div>
+            <div className="flex flex-col">
+                {products.map((product, i) =>
+                    <div key={i} className="flex flex-row">
+                        <input type="checkbox" onChange={() => onChecked(product.id)} checked={product.packed} />
+                        <div className="mx-2">{product.title}</div>
+                        <button onClick={() => onDelete(product.id)} className="border border-black">Delete</button>
+                    </div>
+                )}
+            </div>
+            <div className="border-t border-black">{products.filter(product => product.packed).length} out of {products.length} packed!</div>
+        </div>
+
+    return <TaskWrapper tasks={[task1, task2]} />
 }
