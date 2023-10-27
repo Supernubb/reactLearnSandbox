@@ -16,6 +16,7 @@ import PassingPropsToAComponent from './react.dev.learn/PassingPropsToAComponent
 import ChoosingTheStateStructure from './react.dev.learn/ChoosingTheStateStructure';
 import SharingStateBetweenComponents from './react.dev.learn/SharingStateBetweenComponents';
 import PreservingAndResettingState from './react.dev.learn/PreservingAndResettingState';
+import ExtractingStateLogicIntoAReducer from './react.dev.learn/ExtractingStateLogicIntoAReducer';
 
 const components = [
     {
@@ -81,6 +82,10 @@ const components = [
     {
         name: `PreservingAndResettingState`,
         component: <PreservingAndResettingState />,
+    },
+    {
+        name: `ExtractingStateLogicIntoAReducer`,
+        component: <ExtractingStateLogicIntoAReducer />,
     },
 ];
 
