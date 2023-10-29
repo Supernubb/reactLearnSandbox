@@ -17,6 +17,7 @@ import ChoosingTheStateStructure from './react.dev.learn/ChoosingTheStateStructu
 import SharingStateBetweenComponents from './react.dev.learn/SharingStateBetweenComponents';
 import PreservingAndResettingState from './react.dev.learn/PreservingAndResettingState';
 import ExtractingStateLogicIntoAReducer from './react.dev.learn/ExtractingStateLogicIntoAReducer';
+import UltimateReactCourse from './ulbi.tv__ultimate.react.course/UltimateReactCourse';
 
 const components = [
     {
@@ -87,13 +88,17 @@ const components = [
         name: `ExtractingStateLogicIntoAReducer`,
         component: <ExtractingStateLogicIntoAReducer />,
     },
+    {
+        name: `UlbiTV - UltimateReactCourse(YouTube)`,
+        component: <UltimateReactCourse />,
+    },
 ];
 
 export default function Tabs() {
     const [curComponent, setCurComponent] = useState(components.length - 1);
 
     const tabList = components.map((component, i) =>
-        <button key={i} onClick={() => setCurComponent(i)} className={`p-2 m-2 border ${i === curComponent ? ' border-green-500 font-bold' : ' border-red-500'}`} disabled={i === curComponent}>
+        <button key={i} onClick={() => setCurComponent(i)} className={`p-2 m-2 border ${i === curComponent ? ' border-green-500 font-bold' : ' border-black'}`} disabled={i === curComponent}>
             {component.name}
         </button>
     );
