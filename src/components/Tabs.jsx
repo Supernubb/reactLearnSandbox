@@ -17,7 +17,9 @@ import ChoosingTheStateStructure from './react.dev.learn/ChoosingTheStateStructu
 import SharingStateBetweenComponents from './react.dev.learn/SharingStateBetweenComponents';
 import PreservingAndResettingState from './react.dev.learn/PreservingAndResettingState';
 import ExtractingStateLogicIntoAReducer from './react.dev.learn/ExtractingStateLogicIntoAReducer';
-import UltimateReactCourse from './ulbi.tv__ultimate.react.course/UltimateReactCourse';
+import UltimateReactCourse from './UltimateReactCourse';
+import PassingDataDeeplyWithContext from './react.dev.learn/PassingDataDeeplyWithContext';
+import ScalingUpWithReducerAndContext from './react.dev.learn/ScalingUpWithReducerAndContext';
 
 const components = [
     {
@@ -27,6 +29,10 @@ const components = [
     {
         name: `ThinkingInReact(Table)`,
         component: <ThinkingInReact />,
+    },
+    {
+        name: `UlbiTV - UltimateReactCourse(YouTube)`,
+        component: <UltimateReactCourse />,
     },
     {
         name: `PassingPropsToAComponent`,
@@ -89,8 +95,12 @@ const components = [
         component: <ExtractingStateLogicIntoAReducer />,
     },
     {
-        name: `UlbiTV - UltimateReactCourse(YouTube)`,
-        component: <UltimateReactCourse />,
+        name: `PassingDataDeeplyWithContext`,
+        component: <PassingDataDeeplyWithContext />,
+    },
+    {
+        name: `ScalingUpWithReducerAndContext`,
+        component: <ScalingUpWithReducerAndContext />,
     },
 ];
 

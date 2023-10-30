@@ -29,18 +29,18 @@ export default function UltimateReactCourse() {
 
     const todosList = todos.map((todo, i) =>
         <div className={`flex border p-2 my-2 ${todo.completed ? 'border-red-500' : 'border-black'}`} key={i}>
-            <div className="mr-2">{i + 1}</div>
+            <div className="basis-1/12 mr-2">{i + 1}</div>
             {todo.edit ?
-                <input onChange={e => setTodos(todos.map(t => t.id === todo.id ? { ...t, header: e.target.value } : t))} className="border border-black" value={todo.header} type="text" />
+                <input onChange={e => setTodos(todos.map(t => t.id === todo.id ? { ...t, header: e.target.value } : t))} className="basis-4/12 mr-2 border border-black" value={todo.header} type="text" />
                 :
-                <div>{todo.header}</div>}
+                <div className="basis-4/12 mr-2">{todo.header}</div>}
             {todo.edit ?
-                <input onChange={e => setTodos(todos.map(t => t.id === todo.id ? { ...t, body: e.target.value } : t))} className="border border-black mx-auto" value={todo.body} type="text" />
+                <input onChange={e => setTodos(todos.map(t => t.id === todo.id ? { ...t, body: e.target.value } : t))} className="basis-4/12 mr-2 border border-black mx-auto" value={todo.body} type="text" />
                 :
-                <div className="mx-auto">{todo.body}</div>}
-            <input className="mr-2" type="checkbox" checked={todo.completed} onChange={() => setCompletedTodos(todo.id)} />
-            <button onClick={() => setEditTodo(todo.id)} className="border border-black mr-2">{todo.edit ? `Save` : `Edit`}</button>
-            <button onClick={() => deleteTodo(todo.id)} className="border border-black">Delete</button>
+                <div className="basis-4/12 mr-2">{todo.body}</div>}
+            <input className="mr-2 basis-1/12" type="checkbox" checked={todo.completed} onChange={() => setCompletedTodos(todo.id)} />
+            <button onClick={() => setEditTodo(todo.id)} className="basis-1/12 border border-black mr-2">{todo.edit ? `Save` : `Edit`}</button>
+            <button onClick={() => deleteTodo(todo.id)} className="basis-1/12 border border-black">Delete</button>
         </div>
     )
 
