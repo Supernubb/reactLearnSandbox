@@ -50,3 +50,8 @@ h1 {
     font-size: 25px;
     font-weight: bold;
 }
+
+button,
+input {
+    border: 1px solid black;
+}

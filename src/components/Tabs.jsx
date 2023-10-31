@@ -19,7 +19,10 @@ import PreservingAndResettingState from './react.dev.learn/PreservingAndResettin
 import ExtractingStateLogicIntoAReducer from './react.dev.learn/ExtractingStateLogicIntoAReducer';
 import UltimateReactCourse from './UltimateReactCourse';
 import PassingDataDeeplyWithContext from './react.dev.learn/PassingDataDeeplyWithContext';
-import ScalingUpWithReducerAndContext from './react.dev.learn/ScalingUpWithReducerAndContext';
+import ReferencingValuesWithRefs from './react.dev.learn/ReferencingValuesWithRefs';
+import ManipulatingTheDomWithRefs from './react.dev.learn/ManipulatingTheDomWithRefs';
+import SynchronizingWithEffects from './react.dev.learn/SynchronizingWithEffects';
+import YouMightNotNeedAnEffect from './react.dev.learn/YouMightNotNeedAnEffect';
 
 const components = [
     {
@@ -99,8 +102,20 @@ const components = [
         component: <PassingDataDeeplyWithContext />,
     },
     {
-        name: `ScalingUpWithReducerAndContext`,
-        component: <ScalingUpWithReducerAndContext />,
+        name: `ReferencingValuesWithRefs`,
+        component: <ReferencingValuesWithRefs />,
+    },
+    {
+        name: `ManipulatingTheDomWithRefs`,
+        component: <ManipulatingTheDomWithRefs />,
+    },
+    {
+        name: `SynchronizingWithEffects`,
+        component: <SynchronizingWithEffects />,
+    },
+    {
+        name: `YouMightNotNeedAnEffect`,
+        component: <YouMightNotNeedAnEffect />,
     },
 ];
 
