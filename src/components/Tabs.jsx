@@ -23,6 +23,9 @@ import ReferencingValuesWithRefs from './react.dev.learn/ReferencingValuesWithRe
 import ManipulatingTheDomWithRefs from './react.dev.learn/ManipulatingTheDomWithRefs';
 import SynchronizingWithEffects from './react.dev.learn/SynchronizingWithEffects';
 import YouMightNotNeedAnEffect from './react.dev.learn/YouMightNotNeedAnEffect';
+import LifecycleOfReactiveEffects from './react.dev.learn/LifecycleOfReactiveEffects';
+import SeparatingEventsFromEffects from './react.dev.learn/SeparatingEventsFromEffects';
+import RemovingEffectDependencies from './react.dev.learn/RemovingEffectDependencies';
 
 const components = [
     {
@@ -116,6 +119,18 @@ const components = [
     {
         name: `YouMightNotNeedAnEffect`,
         component: <YouMightNotNeedAnEffect />,
+    },
+    {
+        name: `LifecycleOfReactiveEffects`,
+        component: <LifecycleOfReactiveEffects />,
+    },
+    {
+        name: `SeparatingEventsFromEffects`,
+        component: <SeparatingEventsFromEffects />,
+    },
+    {
+        name: `RemovingEffectDependencies`,
+        component: <RemovingEffectDependencies />,
     },
 ];
 

@@ -1,4 +1,3 @@
-import { useState, useEffect, useMemo } from 'react';
 import TaskWrapper from '../TaskWrapper';
 
 // // 1 задача
