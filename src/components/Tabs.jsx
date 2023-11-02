@@ -26,6 +26,7 @@ import YouMightNotNeedAnEffect from './react.dev.learn/YouMightNotNeedAnEffect';
 import LifecycleOfReactiveEffects from './react.dev.learn/LifecycleOfReactiveEffects';
 import SeparatingEventsFromEffects from './react.dev.learn/SeparatingEventsFromEffects';
 import RemovingEffectDependencies from './react.dev.learn/RemovingEffectDependencies';
+import ReusingLogicWithCustomHooks from './react.dev.learn/ReusingLogicWithCustomHooks';
 
 const components = [
     {
@@ -131,6 +132,10 @@ const components = [
     {
         name: `RemovingEffectDependencies`,
         component: <RemovingEffectDependencies />,
+    },
+    {
+        name: `ReusingLogicWithCustomHooks`,
+        component: <ReusingLogicWithCustomHooks />,
     },
 ];
 
