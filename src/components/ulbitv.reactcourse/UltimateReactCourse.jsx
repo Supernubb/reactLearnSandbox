@@ -6,6 +6,13 @@ import Posts from './pages/Posts';
 export default function UltimateReactCourse() {
     const router = createBrowserRouter([
         {
+            path: "/",
+            element: <>
+                <a href="/about">About</a>
+                <a href="/posts">Posts</a>
+            </>,
+        },
+        {
             path: "about",
             element: <About />,
         },
